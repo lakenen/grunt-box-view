@@ -32,7 +32,7 @@ module.exports = function (client, done, grunt) {
         options.callback(result);
       }
     },
-    sessionOptions: options.uploadOptions
+    sessionOptions: options.sessionOptions
   };
   grunt.config('boxview-session.generated', { options: sessionTaskOptions });
 
