@@ -17,14 +17,22 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-box-view');
 ```
 
-## The "" task
+## The "boxview-upload" task
 
 ### Overview
-In your project's Gruntfile, add a section named `` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `boxview-upload` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  : {
+  'boxview-upload': {
+    somefile: {
+      options: {
+        file: '/path/to/some/file.pdf'
+        uploadOptions: {
+          'non_svg': true
+        }
+      }
+    }
   },
 });
 ```
@@ -35,26 +43,55 @@ grunt.initConfig({
 Type: `String`
 Default value: `null`
 
-A string value that is used to do something with whatever.
+A string value of a local file to upload.
 
 #### options.url
 Type: `String`
 Default value: `null`
 
-A string value that is used to do something else with whatever else.
+A string value of a URL to a file to upload.
 
-### Usage Examples
+#### options.uploadOptions
+Type: `Object`
+Default value: `{}`
 
-#### View a file
-In this example, the ...
+An object representing the upload parameters to use (see [node-box-view docs](https://github.com/lakenen/node-box-view#uploadfile) for more details).
+
+
+## The "boxview-session" task
+
+### Overview
+In your project's Gruntfile, add a section named `boxview-session` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  : {
-
+  'boxview-session': {
+    somefile: {
+      options: {
+        documentId: 'somedocumentuuid'
+        sessionOptions: {
+          duration: 99999999
+        }
+      }
+    }
   },
 });
 ```
+
+### Options
+
+#### options.documentId
+Type: `String`
+Default value: `null`
+
+A string value of the document id to use when creating the session.
+
+#### options.sessionOptions
+Type: `Object`
+Default value: `{}`
+
+An object representing the session parameters to use (see [node-box-view docs](https://github.com/lakenen/node-box-view#create) for more details).
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
