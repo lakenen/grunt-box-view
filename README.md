@@ -149,6 +149,34 @@ Default value: `{}`
 An object representing the session parameters to use (see [node-box-view docs](https://github.com/lakenen/node-box-view#create) for more details).
 
 
+## The "boxview-list" task
+
+> List documents uploaded to the View API
+
+### Overview
+In your project's Gruntfile, add a section named `boxview-list` to the data object passed into `grunt.initConfig()`.
+
+```js
+grunt.initConfig({
+  'boxview-list': {
+    mytask: {
+      options: {
+        limit: 5,
+        callback: function (res) {
+          console.log(JSON.stringify(res, true, 2));
+        }
+      }
+    }
+  },
+});
+```
+
+### Options
+
+#### options
+
+An object representing the list parameters to use (see [node-box-view docs](https://github.com/lakenen/node-box-view#list) for more details).
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
