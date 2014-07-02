@@ -23,6 +23,31 @@ module.exports = function(grunt) {
       }
     },
 
+    // Configuration to be run (and then tested).
+    'boxview-view': {
+        beep: {
+            options: {
+                // url: 'http://threestrangedays.net/resume.pdf',
+                file: '/Users/clakenen/Box Sync/test docs/pdfs/viewer.js.pdf',
+                callback: function (res) {
+                    console.log(res);
+                }
+            }
+        }
+    },
+    'boxview-session': {
+        beep: {
+            options: {
+                // url: 'http://threestrangedays.net/resume.pdf',
+                // file: '/Users/clakenen/Box Sync/test docs/pdfs/viewer.js.pdf',
+                documentId: '75cd74347eea488ab07885a2a11b90d8',
+                callback: function (res) {
+                    console.log(res);
+                }
+            }
+        }
+    },
+
     tape: {
       options: {
         pretty: true,

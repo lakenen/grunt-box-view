@@ -1,3 +1,5 @@
 module.exports = {
-  'view': require('./view')
+  upload: require('./upload'),
+  session: require('./session'),
+  view: require('./view')
 };
