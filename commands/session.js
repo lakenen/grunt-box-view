@@ -4,9 +4,13 @@ var defaults = {
 
 module.exports = function (client, done, grunt) {
   var options = this.options(defaults);
+  var opt = {
+    retry: true,
+    params: options.sessionOptions
+  };
 
   if (options.documentId) {
-    client.sessions.create(options.documentId, options.sessionOptions, function (err, result) {
+    client.sessions.create(options.documentId, opt, function (err, result) {
       if (err) {
         grunt.fail.fatal(JSON.stringify(err.message || err, true, 2));
       } else {

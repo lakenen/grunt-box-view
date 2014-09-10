@@ -19,12 +19,17 @@ module.exports = function (client, done, grunt) {
     }
   }
 
+  var opt = {
+    retry: true,
+    params: options.uploadOptions
+  };
+
   if (options.url) {
     // upload by url
-    client.documents.uploadURL(options.url, options.uploadOptions, handleUploadResponse);
+    client.documents.uploadURL(options.url, opt, handleUploadResponse);
   } else if (options.file) {
     // upload by file
-    client.documents.uploadFile(options.file, options.uploadOptions, handleUploadResponse);
+    client.documents.uploadFile(options.file, opt, handleUploadResponse);
   }
 };
 module.exports.description = 'Upload a document to the View API';
