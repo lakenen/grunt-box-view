@@ -4,7 +4,7 @@ module.exports = function (client, done, grunt) {
 
   client.documents.list(options, function (err, result) {
     if (err) {
-      grunt.fail.fatal(err);
+      grunt.fail.fatal(JSON.stringify(err.message || err, true, 2));
     } else {
       if (options.prop) {
         grunt.config(options.prop, result);

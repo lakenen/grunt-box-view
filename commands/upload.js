@@ -7,7 +7,7 @@ module.exports = function (client, done, grunt) {
 
   function handleUploadResponse(err, result) {
     if (err) {
-      grunt.fail.fatal(JSON.stringify(err.error));
+      grunt.fail.fatal(JSON.stringify(err.message || err, true, 2));
     } else {
       if (options.prop) {
         grunt.config(options.prop, result);
